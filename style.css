@@ -1,0 +1,101 @@
+body {
+  background-color: rgb(48, 50, 49);
+  color: rgb(241, 244, 247);
+  font-family: "Montserrat", sans-serif;
+}
+
+.book-list {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.book-card {
+  padding: 10px 12px;
+  border: 1px solid rgb(241, 244, 247);
+  border-radius: 4px;
+}
+
+.button {
+  border: 2px solid transparent;
+  padding: 8px 16px;
+  min-width: 48px;
+  background-color: rgb(241, 244, 247);
+  color: rgb(48, 50, 49);
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.icon-button {
+  all: unset;
+  position: absolute;
+  right: 40px;
+  top: 20px;
+  width: 22px;
+  height: 22px;
+  background-color: rgb(241, 244, 247);
+  border: 2px solid transparent;
+  border-radius: 50%;
+  padding: 4px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.button:hover,
+.icon-button:hover {
+  border-color: rgb(39, 161, 217);
+}
+
+.form-wrapper {
+  background-color: rgb(48, 50, 49, 0.9);
+  border: none;
+  outline: none;
+  width: 100vw;
+  height: 100vh;
+}
+
+.book-form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 40px;
+  width: 80%;
+  max-width: 600px;
+  border: 1px solid rgb(241, 244, 247);
+  border-radius: 12px;
+  background-color: rgb(48, 50, 49);
+  color: rgb(241, 244, 247);
+  transition: 0.2s;
+}
+
+.form-header {
+  margin: 0;
+  margin-bottom: 12px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 16px;
+}
+
+.input,
+.dropdown {
+  outline: none;
+  padding: 6px 4px;
+  background-color: transparent;
+  border: 1px solid rgb(112, 112, 112);
+  font-size: 16px;
+  color: rgb(241, 244, 247);
+  border-radius: 4px;
+}
+
+.input:focus,
+.dropdown:focus {
+  border-color: rgb(241, 244, 247);
+}

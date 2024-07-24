@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <dialog class="form-wrapper" id="form-wrapper">
+      <form action="" class="book-form">
+        <button class="icon-button" id="close-form">
+          <img src="assets/close.svg" alt="close">
+        </button>
+        <h2 class="form-header">Add Your Book</h2>
+        <label class="label" for="title">
+          Title
+          <input class="input" name="title" id="title" type="text" />
+        </label>
+        <label class="label" for="author">
+          Author
+          <input class="input" name="author" id="author" type="text" />
+        </label>
+        <label class="label" for="pages">
+          Number of pages
+          <input class="input" name="pages" id="pages" type="number" />
+        </label>
+        <label class="label" for="status">
+          Status
+          <select class="dropdown" name="status" id="status">
+            <option value="to-read">To read</option>
+            <option value="in-progres">In progress</option>
+            <option value="done">Done</option>
+          </select>
+        </label>
+        <button class="button" type="submit">Add book</button>
+      </form>
+    </dialog>
+    <button class="button" id="new-book">NEW BOOK</button>
+    <ul class="book-list">
+      <li class="book-card">book 1</li>
+      <li class="book-card">book 2</li>
+      <li class="book-card">book 3</li>
+    </ul>
+  </body>
+</html>
