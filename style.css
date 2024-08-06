@@ -1,3 +1,6 @@
+* {
+    box-sizing: border-box;
+}
 body {
   background-color: rgb(48, 50, 49);
   color: rgb(241, 244, 247);
@@ -11,9 +14,24 @@ body {
 }
 
 .book-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
   padding: 10px 12px;
   border: 1px solid rgb(241, 244, 247);
   border-radius: 4px;
+}
+
+.book-card > button {
+    justify-self: end;
+}
+
+.book-card > h4 {
+    font-size: 14px;
+    font-weight: 400;
 }
 
 .button {
@@ -31,9 +49,6 @@ body {
 
 .icon-button {
   all: unset;
-  position: absolute;
-  right: 40px;
-  top: 20px;
   width: 22px;
   height: 22px;
   background-color: rgb(241, 244, 247);
@@ -47,6 +62,12 @@ body {
 .button:hover,
 .icon-button:hover {
   border-color: rgb(39, 161, 217);
+}
+
+.button-abs {
+  position: absolute;
+  right: 40px;
+  top: 20px;
 }
 
 .form-wrapper {
@@ -86,6 +107,7 @@ body {
 
 .input,
 .dropdown {
+  height: 40px;
   outline: none;
   padding: 6px 4px;
   background-color: transparent;

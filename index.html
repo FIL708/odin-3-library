@@ -15,18 +15,18 @@
   </head>
   <body>
     <dialog class="form-wrapper" id="form-wrapper">
-      <form action="" class="book-form">
-        <button class="icon-button" id="close-form">
-          <img src="assets/close.svg" alt="close">
+      <form action="" class="book-form" id="book-form">
+        <button class="icon-button button-abs" id="close-form">
+          <img src="assets/close.svg" alt="close" />
         </button>
         <h2 class="form-header">Add Your Book</h2>
         <label class="label" for="title">
           Title
-          <input class="input" name="title" id="title" type="text" />
+          <input class="input" name="title" id="title" type="text" required />
         </label>
         <label class="label" for="author">
           Author
-          <input class="input" name="author" id="author" type="text" />
+          <input class="input" name="author" id="author" type="text" required />
         </label>
         <label class="label" for="pages">
           Number of pages
@@ -40,14 +40,23 @@
             <option value="done">Done</option>
           </select>
         </label>
-        <button class="button" type="submit">Add book</button>
+        <button id="submit" class="button" type="submit">Add book</button>
       </form>
     </dialog>
     <button class="button" id="new-book">NEW BOOK</button>
     <ul class="book-list">
-      <li class="book-card">book 1</li>
-      <li class="book-card">book 2</li>
-      <li class="book-card">book 3</li>
+      <li class="book-card">
+        <h3 class="book-title">Title</h3>
+        <button class="icon-button">
+          <img src="assets/delete.svg" alt="delete" />
+        </button>
+        <h4 class="book-author">Author Asdaa</h4>
+        <select class="dropdown" name="status" id="status">
+          <option value="to-read">To read</option>
+          <option value="in-progres">In progress</option>
+          <option value="done">Done</option>
+        </select>
+      </li>
     </ul>
   </body>
 </html>
