@@ -1,5 +1,5 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 body {
   background-color: rgb(48, 50, 49);
@@ -15,8 +15,8 @@ body {
 
 .book-card {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   justify-content: center;
   align-items: center;
   gap: 16px;
@@ -26,12 +26,29 @@ body {
 }
 
 .book-card > button {
-    justify-self: end;
+  grid-area: 1 / 2 / 2 / 3;
+  justify-self: end;
+}
+
+.book-card > h3 {
+  grid-area: 1 / 1 / 2 / 2;
 }
 
 .book-card > h4 {
-    font-size: 14px;
-    font-weight: 400;
+  grid-area: 2 / 1 / 3 / 3;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.book-card > span {
+  grid-area: 3 / 1 / 4 / 2;
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
+
+.book-card > .dropdown {
+  grid-area: 3 / 2 / 4 / 3;
 }
 
 .button {
@@ -57,6 +74,13 @@ body {
   padding: 4px;
   transition: 0.2s;
   cursor: pointer;
+}
+.icon-button > * {
+  pointer-events: none;
+}
+
+.icon {
+  width: 22px;
 }
 
 .button:hover,

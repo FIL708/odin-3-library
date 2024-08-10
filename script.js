@@ -8,6 +8,7 @@ const booklist = document.querySelector(".book-list");
 let myLibrary = [];
 
 function Book(data) {
+  console.log(data);
   return Array.from(data.entries()).reduce((acc, [k, v]) => {
     acc[k] = v;
     return acc;
@@ -40,6 +41,8 @@ const createBookElement = (data) => {
   const deleteBtn = createHtmlElement({
     tag: "button",
     className: "icon-button",
+    id: `${id}-book-del`,
+    events: [{ method: "click", callback: deleteBook }],
   });
   const icon = createHtmlElement({
     tag: "img",
@@ -53,12 +56,21 @@ const createBookElement = (data) => {
     text: author,
   });
 
+  const pageEle = createHtmlElement({ tag: "span", text: pages });
+  const iconPageEle = createHtmlElement({
+    tag: "img",
+    className: "icon",
+    src: "assets/pages.svg",
+    alt: "icon",
+  });
+  pageEle.appendChild(iconPageEle);
+  console.log(pageEle);
   const OPTIONS = ["to-read", "in-progess", "done"];
 
   const optionsEleArray = OPTIONS.map((option) =>
     createHtmlElement({
       tag: "option",
-      text: option.replace("-", " git"),
+      text: option.replace("-", " "),
       value: option,
       selected: option === status,
     })
@@ -67,14 +79,17 @@ const createBookElement = (data) => {
     tag: "select",
     className: "dropdown",
     name: "status",
-    id: "status",
+    value: status,
+    id: `${id}-status`,
+    events: [{ method: "change", callback: updateStatus }],
   });
-  optionsEleArray.forEach(option => selectEle.appendChild(option))
+  optionsEleArray.forEach((option) => selectEle.appendChild(option));
 
   card.appendChild(titleEle);
-  card.appendChild(deleteBtn)
-  card.appendChild(authorEle)
-  card.appendChild(selectEle)
+  card.appendChild(deleteBtn);
+  card.appendChild(authorEle);
+  card.appendChild(pageEle);
+  card.appendChild(selectEle);
 
   return card;
 };
@@ -99,6 +114,26 @@ const toggleForm = (e) => {
   }
 };
 
+const deleteBook = (event) => {
+  myLibrary = myLibrary.filter(
+    (book) => `${book.id}-book-del` !== event.target.id
+  );
+  renderAllBooks();
+};
+
+const updateStatus = (event) => {
+  const { value } = event.target;
+  
+  myLibrary = myLibrary.map((book) => {
+    if (`${book.id}-status` === event.target.id) {
+      book.status = value;
+    }
+    return book;
+  });
+
+  renderAllBooks();
+};
+
 newBookBtn.addEventListener("click", toggleForm);
 closeFormBtn.addEventListener("click", toggleForm);
 form.addEventListener("submit", handleSubmit);
@@ -111,16 +146,25 @@ const createHtmlElement = ({
   name,
   id,
   selected,
-  value
+  value,
+  events,
+  alt,
 }) => {
   const element = document.createElement(tag);
   if (className) element.classList = className;
   if (text) element.textContent = text;
   if (src) element.src = src;
   if (name) element.name = name;
+  if (alt) element.alt = alt;
   if (value) element.value = value;
   if (id) element.id = id;
   if (selected) element.selected = true;
+  if (events) {
+    events.forEach((event) => {
+      const { method, callback } = event;
+      element.addEventListener(method, callback);
+    });
+  }
 
   return element;
 };
